@@ -1,0 +1,2 @@
+#!/bin/sh
+cat /etc/passwd | grep -v '#' | sed --quiet 'n;p' | awk -F ':' '{print $1}' | rev | sort -r | sed --quiet $FT_LINE1','$FT_LINE2'p' | paste -s -d ',' | sed 's/,/, /g' | sed 's/$/./g' | tr -d '\n'
